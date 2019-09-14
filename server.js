@@ -26,6 +26,16 @@ var tables = [
     }
 ];
 
+var waitlistPersons = [
+    {
+        routeName: "reserve",
+        name: "Zuz",
+        phoneNumber: "856-565-656",
+        email: "zz@yahoo.com",
+        userID: "Zuz123"
+    }
+];
+
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -38,4 +48,15 @@ app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 
+// display people reserving table
+app.get("/api/tables", function(req, res) {
+    return res.json(tables);
+});
+
+app.get("/reservations", function(req, res) {
+    return res.json(waitlistPersons);
+});
+
+
+//reservations
 
