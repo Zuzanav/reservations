@@ -57,6 +57,19 @@ app.get("/reservations", function(req, res) {
     return res.json(waitlistPersons);
 });
 
+//=============================================================
 
-//reservations
+app.post("/api/tables", function(req, res){
+    res.json(req.body);
 
+    if (tables.length < 3) {
+        tables.push(req.body)
+    } else {
+        waitlistPersons.push(req.body)
+    }
+    console.log("==============================")
+    console.log(tables);
+    console.log("==============================")
+    console.log(waitlistPersons);
+
+});
